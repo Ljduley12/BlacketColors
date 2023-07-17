@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  
+  <script src="https://kit.fontawesome.com/a28fb25bdb.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="assets/style.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.min.js"></script>
+
+  <title>blacket chat</title>
+</head>
+
+<body>
+  <div class="background"></div>
+  
+  <header>
+    <div class="header-title">blacket colors</div>
+  </header>
+
+  <div class="premade">
+    <div class="title">premade</div>
+    <div class="subtitle" style="margin-bottom: 5vh;">click to copy</div>
+    <div class="prem-btns">
+
+    </div>
+  </div>
+
+  <div class="selfmade">
+    <div class="title">selfmade</div>
+    <div class="subtitle" style="margin-bottom: 5vh;">click plus to add, right click stops to delete</div>
+  
+    <div class="buttons">
+      <span id="anglePicker" style="display: flex; flex-direction: column; text-align: center; justify-content: center; align-items: center; margin-right: 0.5vw; width: 2vw; height: 2vw; aspect-ratio: 1/1; border-radius: 50%; background-color: rgb(63, 20, 255); font-size: 1.5vw; user-select: none; transform: rotate(90deg);"><i class="fas fa-arrow-up"></i></span>
+      <div style="overflow: visible; justify-content: space-evenly !important; min-height: 1.5vw; max-height: 1.5vw; min-width: calc(30vw - 4vw - 1vw); max-width: calc(30vw - 4vw - 1vw); border-radius: 5rem; background: rgb(72, 86, 99) !important; display: flex; flex-direction: row; text-align: center; justify-content: center; align-items: center; flex: 1; user-select: none; outline: 0.25vw solid rgb(63, 20, 255);" id="timeline" class="timeline">
+        
+      </div>
+      <span style="margin-left: 0.5vw; width: 2vw; height: 2vw; aspect-ratio: 1/1; border-radius: 50%; background-color: rgb(63, 20, 255); font-size: 1.5vw; transform: rotate(90deg); user-select: none; display: flex; flex-direction: column; text-align: center; justify-content: center; align-items: center;" onclick="document.getElementById('timeline').innerHTML += '<input oncontextmenu="this.remove();return false;" style="--color:#000000;" type="color" onchange="this.style.setProperty(\'--color\', this.value); var timeline = document.getElementById(\'timeline\'); var ch = [...document.querySelectorAll(\'#timeline > *\')]; var colors = ch.map(x => x.style.cssText.split(\';\').filter(x1 => x1.split(\':\')[0].trim() === \'--color\')[0].split(\':\')[1]); if (colors.length === 1) { timeline.style.background = colors[0]; } else { var txt = \'linear-gradient(to right,\' + colors.join(\',\') + \')\'; timeline.style.background = txt; }&quot>'">+</span>
+    </div>
+    <button class="button" onclick="genG()">Recieve Gradient</button>
+  </div>
+
+  <div class="fromblook" id="fbContainer">
+    <div class="title">Pick blook</div>
+    <div class="subtitle" style="margin-bottom: 5vh;">enter the full blook name to generate a Death-style chat gradient</div>
+
+    <input type="text" id="blook" placeholder="blook name" />
+    <input type="range" id="blookRange" min="2" max="7" value="2" />
+    <button class="button" onclick="genBlook()">generate</button>
+  </div>
+
+  <h4 id="gradName" style="margin: 0px; padding: 0px; font-family: 'Lexend', sans-serif; color: rgb(255, 255, 255); position: fixed; bottom: 1vh; left: 1vw; background-color: rgba(0, 0, 0, 0.5); border-radius: 0.5rem; padding: 0.5vw;">by death and acai</h4>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
